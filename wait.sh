@@ -1,9 +1,10 @@
 #!/bin/sh
+echo -n "wait $1:$2..."
 for k in $( seq 1 180 )
 do
   nc -z $1 $2
   if [ $? -ne 0 ]; then
-    echo "wait $1:$2...$k"
+    echo -n .
     sleep 1
   else 
     echo ok
